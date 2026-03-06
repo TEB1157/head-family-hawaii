@@ -1,0 +1,161 @@
+id	filename	name	category
+1	hanauma-bay-nature-preserve	Hanauma Bay Nature Preserve	beaches
+2	sandy-beach-park	Sandy Beach Park	beaches
+3	kuhio-beach-ponds	Kuhio Beach Ponds	beaches
+4	duke-kahanamoku-lagoon	Duke Kahanamoku Lagoon	beaches
+5	ala-moana-beach-park	Ala Moana Beach Park	beaches
+6	waialae-beach-park-kahala-beach	Waialae Beach Park (Kahala Beach)	beaches
+7	maunalua-bay-beach-park	Maunalua Bay Beach Park	beaches
+8	kailua-beach-park	Kailua Beach Park	beaches
+9	lanikai-beach	Lanikai Beach	beaches
+10	waimanalo-beach	Waimanalo Beach	beaches
+11	ko-olina-lagoons	Ko Olina Lagoons	beaches
+12	bellows-field-beach-park	Bellows Field Beach Park	beaches
+13	kuliouou-beach-park	Kuliouou Beach Park	beaches
+14	shark-s-cove	Shark's Cove	beaches
+15	halona-beach-cove-eternity-beach	Halona Beach Cove (Eternity Beach)	beaches
+20	makapuu-lighthouse-trail	Makapuu Lighthouse Trail	hikes
+21	diamond-head-summit-trail	Diamond Head Summit Trail	hikes
+22	koko-crater-botanical-garden-loop	Koko Crater Botanical Garden Loop	hikes
+23	kawainui-marsh-path	Kawainui Marsh Path	hikes
+24	hoomaluhia-botanical-garden	Hoomaluhia Botanical Garden	hikes
+25	waimea-valley-walk-to-waterfall	Waimea Valley Walk to Waterfall	hikes
+26	lanikai-pillbox-hike-kaiwa-ridge	Lanikai Pillbox Hike (Kaiwa Ridge)	hikes
+27	likeke-falls	Likeke Falls	hikes
+28	manoa-falls-trail	Manoa Falls Trail	hikes
+29	ka-iwi-shoreline-trail	Ka'iwi Shoreline Trail	hikes
+30	foster-botanical-garden	Foster Botanical Garden	hikes
+31	judd-trail-jackass-ginger-pool	Judd Trail (Jackass Ginger Pool)	hikes
+32	kapiolani-park-loop	Kapiolani Park Loop	hikes
+40	mud-hen-water	Mud Hen Water	dining
+41	olive-tree-cafe	Olive Tree Cafe	dining
+42	kona-brewing-co	Kona Brewing Co.	dining
+43	koko-head-cafe	Koko Head Cafe	dining
+44	cafe-maharani	Cafe Maharani	dining
+45	the-pig-and-the-lady	The Pig and the Lady	dining
+46	rainbow-drive-in	Rainbow Drive-In	dining
+47	teddy-s-bigger-burgers	Teddy's Bigger Burgers	dining
+48	moena-cafe	Moena Cafe	dining
+49	plumeria-beach-house	Plumeria Beach House	dining
+50	helena-s-hawaiian-food	Helena's Hawaiian Food	dining
+51	side-street-inn	Side Street Inn	dining
+52	pioneer-saloon	Pioneer Saloon	dining
+60	giovanni-s-shrimp-truck	Giovanni's Shrimp Truck	foodtrucks
+61	big-wave-shrimp	Big Wave Shrimp	foodtrucks
+62	mike-s-huli-chicken	Mike's Huli Chicken	foodtrucks
+63	romy-s-kahuku-prawns	Romy's Kahuku Prawns	foodtrucks
+64	uncle-clay-s-house-of-pure-aloha	Uncle Clay's House of Pure Aloha	foodtrucks
+65	ono-steaks-and-shrimp-shack	Ono Steaks and Shrimp Shack	foodtrucks
+66	ted-s-bakery	Ted's Bakery	foodtrucks
+67	haleiwa-bowls	Haleiwa Bowls	foodtrucks
+68	waiahole-poi-factory	Waiahole Poi Factory	foodtrucks
+69	north-shore-crepes-cafe	North Shore Crepes Cafe	foodtrucks
+70	kahai-street-kitchen	Kahai Street Kitchen	foodtrucks
+80	atlantis-submarine	Atlantis Submarine	adventures
+81	holokai-catamaran	Holokai Catamaran	adventures
+82	surfing-lessons-waikiki	Surfing Lessons (Waikiki)	adventures
+83	kayaking-to-mokulua-islands	Kayaking to Mokulua Islands	adventures
+84	kualoa-ranch	Kualoa Ranch	adventures
+85	coral-crater-adventure-park	Coral Crater Adventure Park	adventures
+86	horseback-riding-turtle-bay	Horseback Riding - Turtle Bay	adventures
+87	gunstock-ranch	Gunstock Ranch	adventures
+88	wet-n-wild-hawaii	Wet 'n' Wild Hawaii	adventures
+89	sea-life-park-dolphin-encounters	Sea Life Park - Dolphin Encounters	adventures
+90	parasailing	Parasailing	adventures
+100	polynesian-cultural-center	Polynesian Cultural Center	cultural
+101	pearl-harbor-national-memorial	Pearl Harbor National Memorial	cultural
+102	bishop-museum	Bishop Museum	cultural
+103	iolani-palace	Iolani Palace	cultural
+104	byodo-in-temple	Byodo-In Temple	cultural
+105	honolulu-fire-department-museum	Honolulu Fire Department Museum	cultural
+106	pacific-aviation-museum	Pacific Aviation Museum	cultural
+107	hawaiian-railway-society	Hawaiian Railway Society	cultural
+108	21-degrees-estate-cacao-farm	21 Degrees Estate Cacao Farm	cultural
+109	manoa-chocolate-factory	Manoa Chocolate Factory	cultural
+110	hawaii-s-plantation-village	Hawaii's Plantation Village	cultural
+120	hawaii-children-s-discovery-center	Hawaii Children's Discovery Center	family
+121	honolulu-zoo	Honolulu Zoo	family
+122	waikiki-aquarium	Waikiki Aquarium	family
+123	sea-life-park	Sea Life Park	family
+124	kids-city-adventure	Kids City Adventure	family
+125	tropics-mini-golf	Tropics Mini Golf	family
+126	dole-plantation	Dole Plantation	family
+127	kahuku-farms	Kahuku Farms	family
+128	green-world-coffee-farm	Green World Coffee Farm	family
+140	halona-blowhole-lookout	Halona Blowhole Lookout	nature
+141	lanai-lookout	Lanai Lookout	nature
+142	makapuu-lookout	Makapuu Lookout	nature
+143	laniakea-beach-turtle-beach	Laniakea Beach (Turtle Beach)	nature
+144	kakaako-waterfront-park-wall-art	Kakaako Waterfront Park & Wall Art	nature
+145	tantalus-round-top-loop-drive	Tantalus Round Top Loop Drive	nature
+146	portlock-tide-pools-china-walls	Portlock Tide Pools / China Walls	nature
+160	kcc-farmers-market	KCC Farmers Market	local
+161	free-hula-show-at-kuhio-beach	Free Hula Show at Kuhio Beach	local
+162	friday-night-fireworks	Friday Night Fireworks	local
+163	swap-meet-at-aloha-stadium	Swap Meet at Aloha Stadium	local
+164	shave-ice-crawl	Shave Ice Crawl	local
+165	chinatown-exploration	Chinatown Exploration	local
+166	shore-fishing	Shore Fishing	local
+167	beach-cleanup-volunteering	Beach Cleanup Volunteering	local
+168	people-s-open-market	People's Open Market	local
+169	kaimuki-third-fridays	Kaimuki Third Fridays	local
+180	honolulu-beerworks	Honolulu Beerworks	breweries
+181	the-brewseum	The Brewseum	breweries
+182	lanikai-brewing	Lanikai Brewing	breweries
+183	beer-lab-hi	Beer Lab HI	breweries
+184	aloha-beer-company	Aloha Beer Company	breweries
+200	foodland-farms-aina-haina	Foodland Farms Aina Haina	groceries
+201	costco-hawaii-kai	Costco Hawaii Kai	groceries
+202	whole-foods-kahala	Whole Foods Kahala	groceries
+203	don-quijote	Don Quijote	groceries
+204	h-mart-kakaako	H Mart Kakaako	groceries
+220	tamashiro-market	Tamashiro Market	foodsources
+221	pier-38-fish-market	Pier 38 Fish Market	foodsources
+222	ono-seafood-kealahou	Ono Seafood Kealahou	foodsources
+223	maguro-brothers-hawaii	Maguro Brothers Hawaii	foodsources
+224	kalihi-super-meats	Kalihi Super Meats	foodsources
+225	forage-hawaii	Forage Hawaii	foodsources
+226	local-i-a-community-supported-fishery	Local I'a (Community Supported Fishery)	foodsources
+300	honolulu-festival-grand-parade-fireworks	Honolulu Festival - Grand Parade & Fireworks	events
+301	honolulu-rainbow-ekiden-kids-race	Honolulu Rainbow EKIDEN & Kids' Race	events
+302	sea-life-park-whale-festival	Sea Life Park Whale Festival	events
+303	st-patrick-s-day-parade-59th-annual	St. Patrick's Day Parade (59th Annual)	events
+304	waikiki-aquarium-122nd-birthday-celebration	Waikiki Aquarium 122nd Birthday Celebration	events
+305	third-friday-kaimuki-march	Third Friday Kaimuki (March)	events
+306	hfd-museum-march-3rd-saturday	HFD Museum (March - 3rd Saturday)	events
+307	koko-marina-craft-gift-fair	Koko Marina Craft & Gift Fair	events
+308	prince-kuhio-day-parade-ho-olaule-a	Prince Kuhio Day Parade & Ho'olaule'a	events
+309	eat-the-street-food-truck-rally	Eat the Street Food Truck Rally	events
+310	foodiecon-spring-expo	FoodieCon & Spring Expo	events
+311	pearl-city-easter-egg-hunt	Pearl City Easter Egg Hunt	events
+312	noaa-sanctuary-ocean-count-whale-watch	NOAA Sanctuary Ocean Count (Whale Watch)	events
+313	keiki-street-festival	Keiki Street Festival	events
+314	first-friday-chinatown-art-walk-april	First Friday Chinatown Art Walk (April)	events
+315	ewa-complex-easter-bash	Ewa Complex Easter Bash	events
+316	easter-sunrise-service-at-punchbowl	Easter Sunrise Service at Punchbowl	events
+317	heart-of-honolulu-art-street-festival	HEART of Honolulu Art Street Festival	events
+318	easter-egg-hunts-galore-april-12	Easter Egg Hunts Galore (April 12)	events
+319	hapalua-hawaii-s-half-marathon	Hapalua - Hawaii's Half Marathon	events
+320	sea-life-park-springtime-celebration-egg-hunt	Sea Life Park Springtime Celebration & Egg Hunt	events
+321	third-friday-kaimuki-april	Third Friday Kaimuki (April)	events
+322	panji-and-the-lost-princess-shadow-puppetry	Panji and the Lost Princess - Shadow Puppetry	events
+323	keiki-rainbow-run	Keiki Rainbow Run	events
+324	hfd-museum-april-3rd-saturday	HFD Museum (April - 3rd Saturday)	events
+325	easter-festival-in-hawaii-kai	Easter Festival in Hawaii Kai	events
+326	honolulu-museum-of-art-free-family-sunday	Honolulu Museum of Art - Free Family Sunday	events
+327	uh-rainbow-warriors-baseball	UH Rainbow Warriors Baseball	events
+340	toa-luau-best-for-families	Toa Luau (Best for Families)	luaus
+341	experience-nutridge-most-intimate	Experience Nutridge (Most Intimate)	luaus
+342	ka-wa-a-at-disney-aulani-best-production	KA WA'A at Disney Aulani (Best Production)	luaus
+343	chief-s-luau-most-interactive	Chief's Luau (Most Interactive)	luaus
+344	aloha-kai-luau-at-sea-life-park-closest	Aloha Kai Luau at Sea Life Park (Closest)	luaus
+360	kilohana-hula-show	Kilohana Hula Show	events
+361	royal-hawaiian-center-free-classes	Royal Hawaiian Center Free Classes	events
+362	kuhio-beach-hula-show	Kuhio Beach Hula Show	events
+363	aina-haina-library-story-time	Aina Haina Library Story Time	events
+364	hilton-friday-night-fireworks	Hilton Friday Night Fireworks	events
+365	kcc-saturday-farmers-market	KCC Saturday Farmers Market	events
+366	royal-hawaiian-band-at-iolani-palace	Royal Hawaiian Band at Iolani Palace	events
+367	ala-moana-center-hula-shows	Ala Moana Center Hula Shows	events
+380	bishop-museum-aloha-bricks-26-lego-exhibition	Bishop Museum: Aloha Bricks '26 - LEGO Exhibition	events
+381	west-side-story-at-diamond-head-theatre	West Side Story at Diamond Head Theatre	events
