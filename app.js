@@ -266,6 +266,10 @@ function renderGrid() {
                      onerror="this.style.display='none'" style="display:none">
                 ${a.driveTime ? `<span class="card-badge">${a.driveTime}${a.distance ? ' · ' + a.distance : ''}</span>` : ''}
                 <span class="card-category-badge" style="background:${cat.color}">${cat.name}</span>
+                <div class="card-links" onclick="event.stopPropagation()">
+                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.address || a.name + ' Oahu Hawaii')}" target="_blank" rel="noopener" title="Google Maps" class="card-link-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+                    ${a.url ? `<a href="${a.url}" target="_blank" rel="noopener" title="Website" class="card-link-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>` : ''}
+                </div>
             </div>
             <div class="card-body">
                 <h3 class="card-title">${a.name}</h3>
@@ -379,6 +383,10 @@ function renderCalendar() {
                                 ${a.cost ? (a.cost.toLowerCase().includes('free') ? '<span class="card-tag tag-free">Free</span>' : `<span class="card-tag tag-cost">${a.cost.slice(0, 30)}</span>`) : ''}
                                 ${isKidFriendly(a) ? '<span class="card-tag tag-kids">Kid-friendly</span>' : ''}
                                 ${a.driveTime ? `<span class="card-tag tag-drive">${a.driveTime}${a.distance ? ' · ' + a.distance : ''}</span>` : ''}
+                            </div>
+                            <div class="event-links" onclick="event.stopPropagation()">
+                                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.address || a.name + ' Oahu Hawaii')}" target="_blank" rel="noopener" class="event-link">Maps</a>
+                                ${a.url ? `<a href="${a.url}" target="_blank" rel="noopener" class="event-link">Website</a>` : ''}
                             </div>
                         </div>
                     </div>`;
