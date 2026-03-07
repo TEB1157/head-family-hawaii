@@ -17,6 +17,16 @@ const CATS = {
     treats:      { name: 'Treats & Sweets',            color: '#e91e63', gradient: 'linear-gradient(135deg, #c2185b, #f48fb1)' }
 };
 
+/* ===== HELPERS ===== */
+function isKidFriendly(a) {
+    if (!a.kidInfo) return false;
+    const k = a.kidInfo.toLowerCase();
+    if (k.includes('not suitable') || k.includes('not for young') || k.includes('not recommended') ||
+        k.includes('not ideal for young') || k.includes('not allowed') || k.includes('parents only') ||
+        k.includes('no kids under')) return false;
+    return true;
+}
+
 /* ===== PHOTO CACHE & LOCAL IMAGE SUPPORT ===== */
 const photoCache = new Map();
 const localImageCache = new Map();
@@ -241,7 +251,7 @@ function renderGrid() {
                 : `<span class="card-tag tag-cost">${a.cost.length > 30 ? a.cost.slice(0, 30) + '...' : a.cost}</span>`)
             : '';
         const driveTag = a.driveTime ? `<span class="card-tag tag-drive">${a.driveTime}${a.distance ? ' · ' + a.distance : ''}</span>` : '';
-        const kidsTag = a.kidInfo ? `<span class="card-tag tag-kids">Kid-friendly</span>` : '';
+        const kidsTag = isKidFriendly(a) ? `<span class="card-tag tag-kids">Kid-friendly</span>` : '';
         const gfTag = a.gfInfo ? `<span class="card-tag tag-gf">GF options</span>` : '';
         const dateTag = a.eventDate ? `<span class="card-tag tag-date">${formatDate(a.eventDate)}</span>` : '';
         const recurTag = a.recurring ? `<span class="card-tag tag-recur">${a.recurring}</span>` : '';
@@ -367,7 +377,7 @@ function renderCalendar() {
                             <div class="event-desc">${a.description.slice(0, 150)}${a.description.length > 150 ? '...' : ''}</div>
                             <div class="event-tags">
                                 ${a.cost ? (a.cost.toLowerCase().includes('free') ? '<span class="card-tag tag-free">Free</span>' : `<span class="card-tag tag-cost">${a.cost.slice(0, 30)}</span>`) : ''}
-                                ${a.kidInfo ? '<span class="card-tag tag-kids">Kid-friendly</span>' : ''}
+                                ${isKidFriendly(a) ? '<span class="card-tag tag-kids">Kid-friendly</span>' : ''}
                                 ${a.driveTime ? `<span class="card-tag tag-drive">${a.driveTime}${a.distance ? ' · ' + a.distance : ''}</span>` : ''}
                             </div>
                         </div>
