@@ -24,6 +24,44 @@
     </header>
 
     <main class="main">
+        <div class="controls" id="controls">
+            <div class="control-group">
+                <label class="control-label">Sort</label>
+                <select id="sortBy" class="control-select">
+                    <option value="default">Default</option>
+                    <option value="distance">Distance (nearest)</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="cost-low">Cost (free first)</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Distance</label>
+                <select id="filterDistance" class="control-select">
+                    <option value="any">Any distance</option>
+                    <option value="10">Under 10 min</option>
+                    <option value="20">Under 20 min</option>
+                    <option value="30">Under 30 min</option>
+                    <option value="45">Under 45 min</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Ages</label>
+                <select id="filterAge" class="control-select">
+                    <option value="any">All ages</option>
+                    <option value="toddler">Toddler-friendly</option>
+                    <option value="kids">Good for kids</option>
+                    <option value="parents">Parents only</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Options</label>
+                <select id="filterOptions" class="control-select">
+                    <option value="any">All</option>
+                    <option value="free">Free only</option>
+                    <option value="gf">Gluten-free options</option>
+                </select>
+            </div>
+        </div>
         <div class="stats" id="stats"></div>
         <div class="grid" id="grid"></div>
         <div class="empty-state" id="empty" style="display:none">

@@ -13,7 +13,8 @@ const CATS = {
     groceries:   { name: 'Grocery Stores',            color: '#37474f', gradient: 'linear-gradient(135deg, #263238, #78909c)' },
     foodsources: { name: 'Fish & Meat Markets',       color: '#01579b', gradient: 'linear-gradient(135deg, #01579b, #4fc3f7)' },
     events:      { name: 'Events & Calendar',         color: '#ad1457', gradient: 'linear-gradient(135deg, #880e4f, #ec407a)' },
-    luaus:       { name: 'Luaus',                      color: '#ff6f00', gradient: 'linear-gradient(135deg, #e65100, #ffca28)' }
+    luaus:       { name: 'Luaus',                      color: '#ff6f00', gradient: 'linear-gradient(135deg, #e65100, #ffca28)' },
+    treats:      { name: 'Treats & Sweets',            color: '#e91e63', gradient: 'linear-gradient(135deg, #c2185b, #f48fb1)' }
 };
 
 /* ===== PHOTO CACHE & LOCAL IMAGE SUPPORT ===== */
@@ -88,6 +89,74 @@ function formatDateRange(start, end) {
 let activeCategory = 'all';
 let activeView = 'grid'; // 'grid' or 'calendar'
 let searchQuery = '';
+let sortBy = 'default';
+let filterDistance = 'any';
+let filterAge = 'any';
+let filterOptions = 'any';
+
+/* ===== SORT & FILTER HELPERS ===== */
+function parseDriveMinutes(dt) {
+    if (!dt) return 999;
+    const m = dt.match(/(\d+)/);
+    return m ? parseInt(m[1]) : 999;
+}
+
+function isFree(a) {
+    return a.cost && a.cost.toLowerCase().includes('free');
+}
+
+function sortActivities(list) {
+    switch (sortBy) {
+        case 'distance':
+            return [...list].sort((a, b) => parseDriveMinutes(a.driveTime) - parseDriveMinutes(b.driveTime));
+        case 'name':
+            return [...list].sort((a, b) => a.name.localeCompare(b.name));
+        case 'cost-low':
+            return [...list].sort((a, b) => {
+                const aFree = isFree(a) ? 0 : 1;
+                const bFree = isFree(b) ? 0 : 1;
+                if (aFree !== bFree) return aFree - bFree;
+                return parseDriveMinutes(a.driveTime) - parseDriveMinutes(b.driveTime);
+            });
+        default:
+            return list;
+    }
+}
+
+function applyFilters(list) {
+    return list.filter(a => {
+        // Distance filter
+        if (filterDistance !== 'any') {
+            const mins = parseDriveMinutes(a.driveTime);
+            if (mins > parseInt(filterDistance)) return false;
+        }
+        // Age filter
+        if (filterAge === 'toddler') {
+            const info = (a.kidInfo || '').toLowerCase() + ' ' + (a.description || '').toLowerCase() + ' ' + (a.tags || []).join(' ').toLowerCase();
+            if (info.includes('not suitable') || info.includes('not for young') || info.includes('not recommended for young') || info.includes('not ideal for young') || info.includes('parents only') || info.includes('no kids under')) return false;
+            if (info.includes('toddler') || info.includes('stroller') || info.includes('all ages') || info.includes('calm water') || info.includes('wading') || info.includes('shallow')) return true;
+            // Allow anything that doesn't explicitly exclude young kids
+            return !info.includes('ages 7+') && !info.includes('ages 8+') && !info.includes('ages 6+');
+        }
+        if (filterAge === 'kids') {
+            const info = (a.kidInfo || '').toLowerCase() + ' ' + (a.description || '').toLowerCase();
+            if (info.includes('parents only') || info.includes('not recommended for') || info.includes('no kids under')) return false;
+            return true;
+        }
+        if (filterAge === 'parents') {
+            const info = (a.kidInfo || '').toLowerCase() + ' ' + (a.description || '').toLowerCase() + ' ' + (a.tags || []).join(' ').toLowerCase();
+            return info.includes('parents only') || info.includes('date night') || info.includes('no kids under') || info.includes('not ideal for young');
+        }
+        // Options filter
+        if (filterOptions === 'free') {
+            if (!isFree(a)) return false;
+        }
+        if (filterOptions === 'gf') {
+            if (!a.gfInfo) return false;
+        }
+        return true;
+    });
+}
 
 /* ===== RENDER FILTERS ===== */
 function renderFilters() {
@@ -143,7 +212,7 @@ function renderGrid() {
     const stats = document.getElementById('stats');
     const q = searchQuery.toLowerCase().trim();
 
-    const filtered = ACTIVITIES.filter(a => {
+    let filtered = ACTIVITIES.filter(a => {
         if (activeCategory !== 'all' && a.category !== activeCategory) return false;
         if (q) {
             const haystack = [a.name, a.description, a.address, a.category, a.recurring || '', ...(a.tags || [])].join(' ').toLowerCase();
@@ -151,6 +220,9 @@ function renderGrid() {
         }
         return true;
     });
+
+    filtered = applyFilters(filtered);
+    filtered = sortActivities(filtered);
 
     stats.textContent = `Showing ${filtered.length} of ${ACTIVITIES.length} activities`;
 
@@ -451,6 +523,35 @@ document.getElementById('search').addEventListener('input', e => {
     searchQuery = e.target.value;
     render();
 });
+
+/* ===== SORT & FILTER CONTROLS ===== */
+document.getElementById('sortBy').addEventListener('change', e => {
+    sortBy = e.target.value;
+    render();
+});
+document.getElementById('filterDistance').addEventListener('change', e => {
+    filterDistance = e.target.value;
+    highlightActiveSelects();
+    render();
+});
+document.getElementById('filterAge').addEventListener('change', e => {
+    filterAge = e.target.value;
+    highlightActiveSelects();
+    render();
+});
+document.getElementById('filterOptions').addEventListener('change', e => {
+    filterOptions = e.target.value;
+    highlightActiveSelects();
+    render();
+});
+
+function highlightActiveSelects() {
+    document.querySelectorAll('.control-select').forEach(sel => {
+        const isActive = sel.value !== 'any' && sel.value !== 'default';
+        sel.style.borderColor = isActive ? '#1a73e8' : '#ddd';
+        sel.style.backgroundColor = isActive ? '#f0f7ff' : '#fff';
+    });
+}
 
 /* ===== INIT ===== */
 (function init() {
