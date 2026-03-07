@@ -22,13 +22,11 @@ const localImageCache = new Map();
 
 /* Find a single local image for an activity */
 async function findLocalImage(activity) {
+    const slug = activity.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
     const candidates = [
-        `images/${activity.id}.jpg`,
-        `images/${activity.id}.png`,
-        `images/${activity.id}.webp`,
-        `images/${activity.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}.jpg`,
-        `images/${activity.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}.png`,
-        `images/${activity.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}.webp`
+        `images/${slug}.jpg`,
+        `images/${slug}.png`,
+        `images/${slug}.webp`
     ];
     for (const path of candidates) {
         if (localImageCache.has(path)) {
@@ -336,21 +334,23 @@ function renderCalendar() {
 
 /* ===== LAZY LOAD CARD IMAGES ===== */
 function lazyLoadImages() {
-    const imgs = document.querySelectorAll('.card-image img[data-id]');
+    const cardImages = document.querySelectorAll('.card-image');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(async entry => {
             if (!entry.isIntersecting) return;
-            const img = entry.target;
+            const container = entry.target;
+            observer.unobserve(container);
+            const img = container.querySelector('img[data-id]');
+            if (!img) return;
             const id = parseInt(img.dataset.id);
             const wiki = img.dataset.wiki;
-            observer.unobserve(img);
 
             // Try local image first
             const activity = ACTIVITIES.find(a => a.id === id);
             if (activity) {
-                const localImgs = await findLocalImages(activity);
-                if (localImgs.length > 0) {
-                    img.src = localImgs[0];
+                const localImg = await findLocalImage(activity);
+                if (localImg) {
+                    img.src = localImg;
                     img.style.display = 'block';
                     return;
                 }
@@ -365,7 +365,7 @@ function lazyLoadImages() {
             }
         });
     }, { rootMargin: '200px' });
-    imgs.forEach(img => observer.observe(img));
+    cardImages.forEach(el => observer.observe(el));
 }
 
 /* ===== MODAL ===== */
